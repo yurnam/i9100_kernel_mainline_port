@@ -33,23 +33,25 @@ mount modules.img MODTEMP
 make modules_install INSTALL_MOD_PATH=./MODTEMP INSTALL_MOD_STRIP=1
 make modules_install INSTALL_MOD_PATH=../rootfs/ INSTALL_MOD_STRIP=1
 
-if [ -f "MODTEMP/lib/modules" ]; then
+if [ -d "MODTEMP/lib/modules" ]; then
 	cd MODTEMP/lib/modules
 	mv * ../../
-
+	cd ../../
+	rm -rf lib
+	cd ..
+	umount MODTEMP
+	mv modules.img ../images/
 
 
 fi
 
 
 
-cd ../../
 
-rm -rf lib
 
-cd ..
-umount MODTEMP
-mv modules.img ../images/
+
+
+
 
 
 
