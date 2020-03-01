@@ -17,7 +17,7 @@ mkdir -p ../rootfs
 if [ -f ".config" ]; then
     make xconfig
 else 
-    make $defconfig
+    make $DEFCONFIG
 fi
 
 make -j$(nproc)
