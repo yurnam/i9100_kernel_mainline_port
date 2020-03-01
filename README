@@ -6,10 +6,6 @@ Working stuff:
 
 wifi, bt, otg, lcd, emmc, sd, charger, touchscreen
 
-Config - i9100_defconfig
-
-to compile this - use arm-none-eabi toolchain.
-
 
 
 Linux kernel
