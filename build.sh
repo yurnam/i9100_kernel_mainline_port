@@ -5,7 +5,7 @@ export CROSS_COMPILE=arm-linux-gnueabihf-
 
 DTB=exynos4210-i9100.dtb
 COMB_ZIMAGE=zImage-dtb
-DEFCONFIG=i9100-defconfig
+DEFCONFIG=i9100_defconfig
 
 
 
@@ -33,9 +33,15 @@ mount modules.img MODTEMP
 make modules_install INSTALL_MOD_PATH=./MODTEMP INSTALL_MOD_STRIP=1
 make modules_install INSTALL_MOD_PATH=../rootfs/ INSTALL_MOD_STRIP=1
 
-cd MODTEMP/lib/modules
+if [ -f "MODTEMP/lib/modules" ]; then
+	cd MODTEMP/lib/modules
+	mv * ../../
 
-mv * ../../
+
+
+fi
+
+
 
 cd ../../
 
